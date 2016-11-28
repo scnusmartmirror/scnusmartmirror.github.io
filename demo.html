@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<style>
+.myName{
+	font-size : 30;
+	position: relative;
+	float: middle;
+}
+.boldClass{
+	font-weight: bold;
+}
+body{
+	position: relative;
+	font-size : 13;
+ 	color: #fff;
+	background-color : black;
+   	font-weight: 300;
+ 	font-family: 'HelveticaNeue-UltraLight', 'Open Sans', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-weight: 300;
+}
+
+h1 {
+    font-size: 120px;
+
+.grey {
+    color: #999;
+}
+
+}
+
+</style>
+
+<html>
+  <head>
+    <title>Farm Data</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <script type = "text/javascript">
+    /*author Philip M. 2010*/
+
+    var timeInSecs;
+    var ticker;
+
+    function startTimer(secs){
+        timeInSecs = parseInt(secs)-1;
+        ticker = setInterval("tick()",1000);   // every second
+    }
+
+    function tick() {
+        var secs = timeInSecs;
+        if (secs>0) {
+            timeInSecs--;
+        } else {
+            clearInterval(ticker); // stop counting at zero
+            window.location.reload();
+            startTimer(10);  // remove forward slashes in front of startTimer to repeat if required
+        }
+
+        document.getElementById("countdown").innerHTML = secs;
+    }
+
+
+    </script>
+    
+  </head>
+
+  <!-- filename: demo.html -->
+
+  <body onload="startTimer(10)">
+          <p class=myName>farm info</p>
+          <table>
+	<!-- Optional : date -->
+<!--
+              <tr>
+                  <td class="boldClass">Date:</td>
+                  <td>%TodaysDate%</td>
+              </tr>
+-->
+              <tr>
+<!-- Optional: It doesn't need
+                  <td class="boldClass">Status: </td>
+-->
+                  <td>%ArduinoOutput%</td>
+              </tr>
+          </table>
+	<!-- Optional: You can get rid of this part. 
+          <p>Page refesh in <span id="countdown" class="boldClass" "grey">10</span> seconds.</p>
+-->
+  </body>
+</html>
