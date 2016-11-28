@@ -46,7 +46,7 @@ class DemoCore():
         today = datetime.datetime.today()
         aDate = datetime.datetime.strftime(today,"%Y-%m-%d %H:%M:%S")
 
-        f = open(CURRENTDIR +"/demo.html")
+        f = open(CURRENTDIR +"/index.html")
         html = f.read()
         html = html.replace("%TodaysDate%",aDate)
         html = html.replace("%ArduinoOutput%",str(data))
